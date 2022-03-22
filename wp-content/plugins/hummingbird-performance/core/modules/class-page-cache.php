@@ -173,6 +173,7 @@ class Page_Cache extends Module {
 	 */
 	public function disable() {
 		$this->toggle_service( false, true );
+		$this->clear_cache();
 	}
 
 	/**
@@ -290,9 +291,7 @@ class Page_Cache extends Module {
 			return;
 		}
 
-		// See if there's already an advanced-cache.php file in place.
-		$adv_cache_file_dest = dirname( get_theme_root() ) . '/advanced-cache.php';
-		if ( ! file_exists( $adv_cache_file_dest ) ) {
+		if ( ! file_exists( WP_CONTENT_DIR . '/advanced-cache.php' ) ) {
 			// Try to add advanced-cache.php file.
 			$adv_cache_file_src = dirname( plugin_dir_path( __FILE__ ) ) . '/advanced-cache.php';
 
@@ -301,7 +300,7 @@ class Page_Cache extends Module {
 			}
 
 			$contents = file_get_contents( $adv_cache_file_src );
-			$wphb_fs->write( $adv_cache_file_dest, $contents );
+			$wphb_fs->write( WP_CONTENT_DIR . '/advanced-cache.php', $contents );
 		}
 
 		// Try to define WP_CACHE in wp-config.php file.

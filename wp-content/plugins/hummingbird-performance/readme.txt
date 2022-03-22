@@ -1,6 +1,6 @@
 === Hummingbird – Optimize Speed, Enable Cache, Minify CSS & Defer Critical JS ===
 Plugin Name: Hummingbird – Optimize Speed, Enable Cache, Minify CSS & Defer Critical JS
-Version: 3.3.0
+Version: 3.3.2
 Author: WPMU DEV
 Author URI: https://wpmudev.com/
 Contributors: WPMUDEV
@@ -8,7 +8,7 @@ Tags: defer css javascript, cache, minify css, minify javascript, speed up wordp
 Requires at least: 5.2
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 3.3.0
+Stable tag: 3.3.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -182,6 +182,27 @@ Asset Optimization is a great way to speed up your site but moving, combining, u
 4. Use suggestions to make improvements and speed up your site.
 
 == Changelog ==
+
+= 3.3.2 ( 2022-03-14 ) =
+
+- Fix: XSS vulnerability
+
+= 3.3.1 ( 2022-02-24 ) =
+
+- New: Onboarding setup wizard
+- Enhance: Support for WPMU DEV Hub
+- Enhance: Add a unique salt when enabling Redis integration
+- Enhance: "How does it work" section in asset optimization module
+- Fix: Incorrect detection of Cloudflare APO status
+- Fix: Missing action buttons on Integrations page in sub sites
+- Fix: Page cache not clearing when caching is disabled on subsites
+- Fix: Duplicate ID elements on dashboard page
+- Fix: Inability to auto start asset optimization scan from dashboard page on free version
+- Fix: Remove global configs from network subsites
+- Fix: An invalid form control with name='cloudflare-email' is not focusable error
+- Fix: Documentation link in Notifications module
+- Fix: Translation strings
+- Fix: Styles for Select2 textarea elements
 
 = 3.3.0 ( 2022-01-11 ) =
 

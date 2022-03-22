@@ -717,6 +717,16 @@ class Cloudflare extends Module {
 		$features  = wp_list_pluck( $entitlements->result, 'id' );
 		$purchased = in_array( 'zone.automatic_platform_optimization', $features, true );
 
+		/**
+		 * If APO addon has been purchased before, it might not be active now - check.
+		 */
+		if ( $purchased ) {
+			$key = array_search( 'zone.automatic_platform_optimization', $features, true );
+			$val = $entitlements->result[ $key ];
+
+			$purchased = isset( $val->allocation ) && isset( $val->allocation->value ) && $val->allocation->value;
+		}
+
 		if ( isset( $options['apo_paid'] ) && $purchased !== $options['apo_paid'] ) {
 			$options['apo_paid'] = $purchased;
 			$this->update_options( $options );
