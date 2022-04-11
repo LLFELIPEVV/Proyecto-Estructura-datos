@@ -1,8 +1,6 @@
 <?php
 
-namespace Appsero;
-
-use PHPUnit\Runner\Exception;
+namespace Appsero; 
 
 /**
  * Appsero Insights
